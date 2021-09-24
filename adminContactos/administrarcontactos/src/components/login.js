@@ -12,6 +12,7 @@ import * as Yup from "yup";
 const sesion = false;
 
 
+
 // import './login.css';
 
 export default function Login() {
@@ -32,88 +33,20 @@ export default function Login() {
                         </div>
 
                         <div className="content">
-                            <div>
-                                <Formik
-                                    initialValues={{
 
-                                        email: "",
-                                        clave: "",
-
-                                    }}
-                                    validationSchema={Yup.object().shape({
-
-                                        email: Yup.string()
-                                            .email("El correo electrónico es incorrecto")
-                                            .required("Por favor introduzca su correo electrónico"),
-                                        clave: Yup.string()
-
-                                            .min(8, 'Minimo 8 caracteres')
-                                            .matches(/[a-zA-Z]/, 'Ingrese caracteres validos')
-                                            .required("Ingrese por favor la clave"),
-                                            
-                                    })}
-                                    onSubmit={(values, { setSubmitting }) => {
-                                        const timeOut = setTimeout(() => {
-                                            console.log(values);
-                                            setSubmitting(false);
-
-                                            clearTimeout(timeOut);
-                                        }, 1000);
-                                    }}
-                                >
-                                    {({
-                                        values,
-                                        errors,
-                                        touched,
-                                        handleSubmit,
-                                        isSubmitting,
-                                        validating,
-                                        valid,
-                                    }) => {
-                                        return (
-                                            <Form name="contact" method="post" onSubmit={handleSubmit}>
-
-
-                                                <div className="content">
-                                                    <label htmlFor="email" >
-
-                                                        <Field
-                                                            type="email"
-                                                            name="email"
-                                                            autoComplete="email"
-                                                            placeholder="Su correo"
-                                                            className="input username"
-                                                        />
-                                                    </label>
-                                                    <ErrorMessage name="email">{(msg) => <p className="camp_requerido">{msg}</p>}</ErrorMessage>
-
-
-                                                    <label htmlFor="clave" >
-
-                                                        <Field
-                                                            type="text"
-                                                            name="clave"
-                                                            autoComplete="name"
-                                                            placeholder="Su clave"
-                                                            className="input password"
-                                                        />
-                                                    </label>
-                                                    {errors.clave && touched.clave && <p className="camp_requerido" >{errors.clave}</p>}
-                                                </div>
-
-                                                <div className="footer" valign="bottom">
-                                                    <button type="submit" className="boton" disabled={!valid || isSubmitting}>
-                                                        {isSubmitting ? `Submiting...` : `INGRESAR`}
-                                                    </button>
-                                                </div>
-                                            </Form>
-                                        );
-                                    }}
-                                </Formik>
+                            <div class="content">
+                                <input name="email" id="email" type="email"  class="input username" placeholder="Correo *" />
+                                <input name="password" id="password" type="password" class="input password"  placeholder="Clave *" />
                             </div>
+
+
+                            <div class="footer" valign="bottom">
+                                <input type="button" name="botonera" value="INGRESAR" class="boton" />
+                            </div>
+
                         </div>
 
-
+                    
                         <div className="remate_admin">
                             <div className="derechos">
                                 <p>
